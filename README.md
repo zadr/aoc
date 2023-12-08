@@ -19,4 +19,6 @@ Every solution in `aoc` follows a strict naming convention for classes, and anyt
 Informally, I also have a `+Data.swift` extensions to hold real and sample inputs.
 
 #### Anything else
-if you clone this repo (`git clone git@github.com:zadr/aoc.git`), cd into it (`cd aoc`), and `swift run aoc --help` you'll get the full help menu.
+Consider running in release mode `swift run --configuration release aoc --real-data`.
+
+If you clone this repo (`git clone git@github.com:zadr/aoc.git`), cd into it (`cd aoc`), and `swift run aoc --help` you'll get the full help menu.
