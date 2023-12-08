@@ -41,7 +41,7 @@ struct AOC: ParsableCommand {
 
 		if !disableOne {
 			print("Part 1:")
-			var result: Int! = nil
+			var result: Output! = nil
 			let duration = clock.measure {
 				result = solutions[yearToRun]?[dayToRun]?.partOne(useSampleData: !realData)
 			}
@@ -51,7 +51,7 @@ struct AOC: ParsableCommand {
 		print()
 		if !disableTwo {
 			print("Part 2:")
-			var result: Int! = nil
+			var result: Output! = nil
 			let duration = clock.measure {
 				result = solutions[yearToRun]?[dayToRun]?.partTwo(useSampleData: !realData)
 			}

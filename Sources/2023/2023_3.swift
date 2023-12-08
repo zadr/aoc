@@ -53,7 +53,7 @@ class AOC_2023_3: NSObject, Solution {
 		}
 	}
 
-	func partOne(useSampleData: Bool) -> Int {
+	func partOne(useSampleData: Bool) -> Output {
 		let input = (useSampleData ? AOC_2023_3.sample : AOC_2023_3.real)
 		let lines = input.components(separatedBy: "\n")
 
@@ -62,10 +62,10 @@ class AOC_2023_3: NSObject, Solution {
 		with(lines, symbols: symbols, onResult: { next in
 			result += next
 		})
-		return result
+		return .int(result)
 	}
 
-	func partTwo(useSampleData: Bool) -> Int {
+	func partTwo(useSampleData: Bool) -> Output {
 		let lines = (useSampleData ? AOC_2023_3.sample : AOC_2023_3.real)
 						.components(separatedBy: "\n")
 		var result = 0
@@ -78,6 +78,6 @@ class AOC_2023_3: NSObject, Solution {
 			}
 			products.removeAll()
 		})
-		return result
+		return .int(result)
 	}
 }

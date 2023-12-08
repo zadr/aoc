@@ -3,8 +3,8 @@ import Foundation
 class AOC_2023_4: NSObject, Solution {
 	static func solver() -> Solution { AOC_2023_4() }
 
-	func partOne(useSampleData: Bool) -> Int {
-		(useSampleData ? AOC_2023_4.sample : AOC_2023_4.real)
+	func partOne(useSampleData: Bool) -> Output {
+		.int((useSampleData ? AOC_2023_4.sample : AOC_2023_4.real)
 			.components(separatedBy: "\n")
 			.map { line in
 					let components = line.components(separatedBy: "|")
@@ -15,9 +15,10 @@ class AOC_2023_4: NSObject, Solution {
 						.reduce(1) { x, _ in x * 2 }
 							/ 2
 				}.reduce(0, +)
+			)
 	}
 
-	func partTwo(useSampleData: Bool) -> Int {
+	func partTwo(useSampleData: Bool) -> Output {
 		let scratchcardResults = (useSampleData ? AOC_2023_4.sample : AOC_2023_4.real)
 			.components(separatedBy: "\n")
 			.map { line in
@@ -39,6 +40,6 @@ class AOC_2023_4: NSObject, Solution {
 			}
 		}
 
-		return countOfCards.values.reduce(0, +)
+		return .int(countOfCards.values.reduce(0, +))
 	}
 }

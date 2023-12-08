@@ -4,7 +4,7 @@ import Foundation
 class AOC_2023_5: NSObject, Solution {
 	static func solver() -> Solution { AOC_2023_5() }
 
-	func partOne(useSampleData: Bool) -> Int {
+	func partOne(useSampleData: Bool) -> Output {
 		struct DisjointedRange<T: Comparable> {
 			var ranges = [Range<T>]()
 
@@ -65,10 +65,10 @@ class AOC_2023_5: NSObject, Solution {
 			}
 			minValue = min(minValue, searchingForValue)
 		}
-		return minValue
+		return .int(minValue)
 	}
 
-	func partTwo(useSampleData: Bool) -> Int {
+	func partTwo(useSampleData: Bool) -> Output {
 		class Map {
 			var source = [Range<Int>]()
 			var destination = [Range<Int>]()
@@ -115,6 +115,6 @@ class AOC_2023_5: NSObject, Solution {
 			}
 		}
 
-		return minValue
+		return .int(minValue)
 	}
 }

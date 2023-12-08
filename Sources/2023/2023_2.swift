@@ -10,9 +10,10 @@ class AOC_2023_2: NSObject, Solution {
 		return 0
 	}
 
-	func partOne(useSampleData: Bool) -> Int {
-		(useSampleData ? AOC_2023_2.sample : AOC_2023_2.real)
-			.components(separatedBy: "\n").reduce(0) { accumulator, line in
+	func partOne(useSampleData: Bool) -> Output {
+		.int((useSampleData ? AOC_2023_2.sample : AOC_2023_2.real)
+			.components(separatedBy: "\n")
+			.reduce(0) { accumulator, line in
 				let idToCubes = line.components(separatedBy: ": ")
 	
 				var isValid = true
@@ -27,9 +28,11 @@ class AOC_2023_2: NSObject, Solution {
 
 				return isValid ? accumulator + Int(idToCubes.first!.replacing("Game ", with: ""))! : accumulator
 			}
+		)
 	}
-	func partTwo(useSampleData: Bool) -> Int {
-		(useSampleData ? AOC_2023_2.sample : AOC_2023_2.real)
+
+	func partTwo(useSampleData: Bool) -> Output {
+		.int((useSampleData ? AOC_2023_2.sample : AOC_2023_2.real)
 			.components(separatedBy: "\n").reduce(0) { accumulator, line in
 				var red = 0, green = 0, blue = 0
 				line.components(separatedBy: ": ").last!.components(separatedBy: "; ").forEach { grab in
@@ -41,6 +44,6 @@ class AOC_2023_2: NSObject, Solution {
 				}
 				return accumulator + (red * green * blue)
 			}
-		
+		)
 	}
 }

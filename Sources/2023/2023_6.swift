@@ -3,8 +3,7 @@ import Foundation
 class AOC_2023_6: NSObject, Solution {
 	static func solver() -> Solution { AOC_2023_6() }
 
-	
-	func partOne(useSampleData: Bool) -> Int {
+	func partOne(useSampleData: Bool) -> Output {
 		let input = (useSampleData ? AOC_2023_6.sample : AOC_2023_6.real)
 		let lines = input.components(separatedBy: "\n")
 		let durations = lines.first!
@@ -18,12 +17,12 @@ class AOC_2023_6: NSObject, Solution {
 			.components(separatedBy: " ")
 			.compactMap { Int($0) }
 
-		return zip(durations, records).reduce(into: 1) { accumulator, pair in
+		return .int(zip(durations, records).reduce(into: 1) { accumulator, pair in
 			accumulator *= (1...pair.0).filter { i in (pair.0 - i) * i > pair.1 }.count
-		}
+		})
 	}
 
-	func partTwo(useSampleData: Bool) -> Int {
+	func partTwo(useSampleData: Bool) -> Output {
 		let input = (useSampleData ? AOC_2023_6.sample : AOC_2023_6.real)
 		let lines = input.components(separatedBy: "\n")
 		let duration = Int(lines
@@ -40,10 +39,10 @@ class AOC_2023_6: NSObject, Solution {
 		let start = (1...duration).first { i in
 			(duration - i) * (i) > record
 		}!
-		return (duration - (start * 2)) + 1
+		return .int((duration - (start * 2)) + 1)
 	}
 
-	func partTwo_b(useSampleData: Bool) -> Int {
+	func partTwo_b(useSampleData: Bool) -> Output {
 		let input = (useSampleData ? AOC_2023_6.sample : AOC_2023_6.real)
 		let lines = input.components(separatedBy: "\n")
 		let duration = Int(lines
@@ -64,10 +63,10 @@ class AOC_2023_6: NSObject, Solution {
 			(duration - i) * (i) > record
 		}!
 	
-		return (end - start) + 1
+		return .int((end - start) + 1)
 	}
 
-	func partTwo_c(useSampleData: Bool) -> Int {
+	func partTwo_c(useSampleData: Bool) -> Output {
 		let input = (useSampleData ? AOC_2023_6.sample : AOC_2023_6.real)
 		let lines = input.components(separatedBy: "\n")
 		let duration = Int(lines
@@ -86,6 +85,6 @@ class AOC_2023_6: NSObject, Solution {
 			let maxDistanceCoveredAtCurrentSpeed = (duration - i) * i
 			if maxDistanceCoveredAtCurrentSpeed > record { speedsThatCanWin += 1 }
 		}
-		return speedsThatCanWin
+		return .int(speedsThatCanWin)
 	}
 }

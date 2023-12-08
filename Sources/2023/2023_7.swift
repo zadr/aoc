@@ -9,7 +9,7 @@ class AOC_2023_7: NSObject, Solution {
 		rank.distance(from: rank.startIndex, to: rank.firstIndex(of: y)!)
 	}
 
-	func partOne(useSampleData: Bool) -> Int {
+	func partOne(useSampleData: Bool) -> Output {
 		func histogram(_ word: String) -> [Character: Int] {
 			word.reduce(into: [Character: Int]()) {
 				$0[$1] = ($0[$1] ?? 0) + 1
@@ -28,7 +28,7 @@ class AOC_2023_7: NSObject, Solution {
 			{ _ in true }, // high card
 		]
 
-		return (useSampleData ? AOC_2023_7.sample : AOC_2023_7.real)
+		return .int((useSampleData ? AOC_2023_7.sample : AOC_2023_7.real)
 			.components(separatedBy: "\n")
 			.sorted(by: {
 				let x = $0.components(separatedBy: " ").first!
@@ -46,9 +46,10 @@ class AOC_2023_7: NSObject, Solution {
 			}).enumerated().reduce(0) {
 				$0 + (Int($1.element.components(separatedBy: " ").last!)! * ($1.offset + 1))
 			}
+		)
 	}
 
-	func partTwo(useSampleData: Bool) -> Int {
+	func partTwo(useSampleData: Bool) -> Output {
 		func histogram(_ rank: String, _ word: String) -> [Character: Int] {
 			var scores = word.reduce(into: [Character: Int]()) {
 				$0[$1] = ($0[$1] ?? 0) + 1
@@ -65,7 +66,7 @@ class AOC_2023_7: NSObject, Solution {
 		}
 
 		let rank = "AKQT98765432J"
-		return (useSampleData ? AOC_2023_7.sample : AOC_2023_7.real)
+		return .int((useSampleData ? AOC_2023_7.sample : AOC_2023_7.real)
 			.components(separatedBy: "\n")
 			.map { $0.components(separatedBy: " ") }
 			.sorted(by: {
@@ -89,5 +90,6 @@ class AOC_2023_7: NSObject, Solution {
 			.reduce(0) {
 				$0 + (Int($1.element.last!)! * ($1.offset + 1))
 			}
+		)
 	}
 }
