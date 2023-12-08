@@ -1,8 +1,12 @@
 import Foundation
 
 extension String {
+	func lines() -> [String] {
+		components(separatedBy: "\n")
+	}
+
 	func enumerateLines(_ block: (String) -> Void) {
-		components(separatedBy: "\n").forEach(block)
+		lines().forEach(block)
 	}
 
 	func dropDescription() -> String {
