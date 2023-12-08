@@ -20,7 +20,7 @@ struct AOC: ParsableCommand {
 	@Flag(help: "run part one? automatically used if parts 1 and 2 are discovered in separate files with _1 and _2 suffixes.")
 	var disableTwo = false
 
-    mutating func run() throws {
+	mutating func run() throws {
 		var solutions = [Int: [Int: Solution]]()
 
 		for yearToAdd in 2022...2023 {
