@@ -7,14 +7,16 @@ My lil environment for managing [Advent Of Code](https://adventofcode.com/) solu
 #### What does it do
 Manages all my Advent of Code solutions. Lets me run any one of them on the fly via `--day` and `--year` parameters, otherwise picks the most recent solution to run.
 
-Through the `--real-data` flag, `aoc` can switch to solution input instead of sample input.
+`swift run aoc --begin` to prepare files for the next solution automatically.
+
+Through the `swift run aoc --real-data` flag, `aoc` can switch to solution input instead of sample input.
 
 And, `aoc` will show how long it takes for a solution to run automatically.
 
 #### How does `aoc` know what to do?
 Command line arguments. And the Objective-C runtime.
 
-Every solution in `aoc` follows a strict naming convention for classes, and anything following this pattern will be loaded automatically. The pattern is: `AOC_` + `year` + `_` + `day` + `.swit`, or as an example, `AOC_2025_25.swift`.
+Every solution in `aoc` follows a strict naming convention for classes, and anything following this pattern will be loaded automatically. The pattern is: `AOC_` + `year` + `_` + `day`, or as an example, `AOC_2025_25`.
 
 Informally, I also have a `+Data.swift` extensions to hold real and sample inputs.
 
