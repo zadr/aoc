@@ -17,10 +17,10 @@ struct AOC: ParsableCommand {
 	@Flag(help: "use real data for testing? set to true when ready.")
 	var realData = false
 
-	@Flag(help: "run part one? automatically used if parts 1 and 2 are discovered in separate files with _1 and _2 suffixes.")
+	@Flag(help: "avoid running part one?")
 	var disableOne = false
 
-	@Flag(help: "run part one? automatically used if parts 1 and 2 are discovered in separate files with _1 and _2 suffixes.")
+	@Flag(help: "avoid running part two?")
 	var disableTwo = false
 
 	mutating func run() throws {
